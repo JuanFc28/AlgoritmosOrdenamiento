@@ -1,0 +1,50 @@
+public class BubbleSort {
+    public static void main(String[] args) throws Exception {
+        long tiempoInicio = System.currentTimeMillis(); //Inicia a contar el tiempo de ejecucion
+
+        // Aquí colocamos los 100 números aleatorios dentro de un array.
+        int[] numerosAleatorios = {
+            587, 254, 503, 818, 237, 215, 122, 653, 774, 202, 890, 657, 109, 859, 305, 789, 141, 788, 147, 598, 
+            227, 133, 423, 947, 969, 27, 792, 572, 908, 339, 746, 243, 181, 279, 428, 96, 647, 545, 872, 174, 
+            479, 934, 25, 931, 922, 678, 110, 292, 617, 104, 741, 726, 823, 503, 736, 581, 63, 852, 470, 121, 
+            419, 866, 283, 328, 336, 454, 196, 461, 473, 77, 764, 612, 468, 855, 962, 798, 287, 25, 394, 204, 
+            989, 293, 305, 361, 307, 154, 319, 803, 108, 538, 396, 227, 262, 949, 69, 123, 18, 255, 979, 493, 
+            657, 581, 71
+        };
+ 
+ 
+        // Imprimir los números aleatorios para verificar
+        System.out.println("Números aleatorios:");
+        for (int i = 0; i < numerosAleatorios.length; i++) {
+            System.out.print(numerosAleatorios[i] + ", ");
+        }
+        bubbleSort(numerosAleatorios);
+        //Contador de tiempo
+        long tiempoFinal = System.currentTimeMillis();
+        long tiempoEjecucion = tiempoFinal - tiempoInicio;
+        double segundos = tiempoEjecucion / 1000.0;
+        System.out.println("\nTiempo de ejecución: " + segundos +" segundos");
+    }
+
+    public static void bubbleSort(int[] array) {
+        int n = array.length;
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 0; i < n - 1; i++) {
+                if (array[i] > array[i + 1]) {
+                    // Intercambiar array[i] y array[i+1]
+                    int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+        System.out.println("\nLista ordenada por bubble sort:");
+        for (int num : array) {
+            System.out.print(num + ", ");
+        }
+    }
+
+}
